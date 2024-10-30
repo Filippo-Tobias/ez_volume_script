@@ -1,0 +1,15 @@
+post_install() {
+    echo "Enabling and starting ez-volume.service..."
+    systemctl --global enable ez-volume.service
+}
+
+post_upgrade() {
+    echo "Reloading and restarting ez-volume.service..."
+    systemctl --global enable ez-volume.service
+}
+
+post_remove() {
+    echo "Disabling ez-volume.service..."
+    systemctl --global disable ez-volume.service
+}
+

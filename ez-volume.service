@@ -1,0 +1,9 @@
+[Unit]
+Description=EZ Volume Service
+
+[Service]
+ExecStart=/usr/local/bin/ez-volume.sh
+
+[Install]
+WantedBy=graphical-session.target
+

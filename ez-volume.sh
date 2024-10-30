@@ -1,5 +1,6 @@
 #!/bin/bash
-DIRECTORY="/tmp/ez-volume/pids"
+PARENT_DIRECTORY="/tmp/ez-volume/"
+DIRECTORY="$PARENT_DIRECTORY"/pids
 PIPE_PATH="/tmp/ez-volume/pipe"
 
 if [ "$(id -u)" = 0 ]; then
@@ -8,7 +9,7 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 function cleanup {
-    $(rm -rf $DIRECTORY/*)
+    $(rm -rf $PARENT_DIRECTORY/*)
 }
 
 trap cleanup EXIT

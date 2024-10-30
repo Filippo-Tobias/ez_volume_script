@@ -1,0 +1,20 @@
+# Ignore the package files
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.pkg.tar.gz
+
+# Ignore the source files
+*.src.tar.zst
+*.src.tar.xz
+*.src.tar.gz
+
+# Ignore the build directory
+src/
+pkg/
+
+# Ignore the log files created during the build process
+*.log
+
+# Ignore temporary files
+*.tmp
+
