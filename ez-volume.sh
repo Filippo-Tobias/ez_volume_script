@@ -70,7 +70,7 @@ fi
 
 while :; do
     set_window_stream_volume
-    if read line < "$PIPE_PATH"; then
+    if line=$(timeout 0.1 cat "$PIPE_PATH"); then
         if [[ "$line" == volume_* ]]; then
           change_active_window_stream_volumes "${line#volume_}"
         fi
