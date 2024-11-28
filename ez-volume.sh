@@ -1,5 +1,5 @@
 #!/bin/bash
-PARENT_DIRECTORY="/tmp/ez-volume/"
+PARENT_DIRECTORY="/tmp/ez-volume"
 DIRECTORY="$PARENT_DIRECTORY"/pids
 PIPE_PATH="/tmp/ez-volume/pipe"
 
@@ -13,10 +13,6 @@ function cleanup {
 }
 
 trap cleanup EXIT
-
-if [[ ! -p $PIPE_PATH ]]; then
-    mkfifo "$PIPE_PATH"
-fi
 
 get_stored_volume() { # $1 is the program pid
     FILENAME=$1
@@ -64,9 +60,16 @@ set_window_stream_volume() {
         done
     done
 }
+if [ ! -d "$PARENT_DIRECTORY" ]; then
+    mkdir -p "$PARENT_DIRECTORY"
+fi
 
 if [ ! -d "$DIRECTORY" ]; then
     mkdir -p "$DIRECTORY"
+fi
+
+if [[ ! -p $PIPE_PATH ]]; then
+    mkfifo "$PIPE_PATH"
 fi
 
 while :; do

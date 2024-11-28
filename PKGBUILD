@@ -1,7 +1,7 @@
 # Maintainer: Filippo Tobias <filippotobias@gmail.com>
 
 pkgname=ez-volume
-pkgver=1.0.10
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="Installs ez-volume.sh and creates a systemd service to run it"
 arch=('any')
